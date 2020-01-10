@@ -10,6 +10,6 @@ class   Home extends CI_Controller
     {
         $controller = 'home/index';
         $data['judul'] = 'HALAMAN HOME';
-        $this->temp->loadTemp($data, $controller);
+        $this->temp->loadTemp($controller, $data);
     }
 }

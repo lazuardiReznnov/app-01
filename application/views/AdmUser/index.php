@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Daftar User</h3>
+            <h3>Managemant User</h3>
         </div>
     </div>
     <div class="row">
