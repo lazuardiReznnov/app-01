@@ -14,6 +14,6 @@ class User_model extends CI_Model
         $this->db->from('user');
         $this->db->join('access', 'user.idAccess = access.idAccess', 'inner');
         $this->db->order_by('idUser', 'ACS');
-        $this->db->get();
+       return $this->db->get()->result_array();
     }
 }

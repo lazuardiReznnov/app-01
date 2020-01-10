@@ -19,9 +19,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php var_dump($user); ?>
+                    <?php $no = 1;
+                    foreach ($user as $usr) :; ?>
+                        <tr>
+                            <th><?= $no; ?></th>
+                            <td><?= $usr['username']; ?></td>
+                            <td><?= $usr['email']; ?></td>
+                            <td><a href="" class="badge badge-secondary">Ganti Password</a></td>
+                            <td><?= $usr['accessName']; ?></td>
+                            <td> <?= $usr['photo'] ?> </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </div>

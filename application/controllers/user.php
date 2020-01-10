@@ -13,8 +13,7 @@ class user extends CI_Controller
     {
         $data['judul'] = "HALAMAN USER";
         $data['user'] = $this->user->getDataUser();
-        $this->temp->loadTemp($data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/footer');
+        $controller = 'user/index';
+        $this->temp->loadTemp($controller, $data);
     }
 }
