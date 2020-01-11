@@ -22,7 +22,16 @@ class menuManagement extends CI_Controller
         $data['topPanel'] = $this->temp->getUser();
         $data['judul'] = "HALAMAN MANAGEMENT MENU";
         $data['menu'] = $this->menu->getDataMenu($config['per_page'], $data['start']);
-        $controller = 'menu/index';
+        $controller = 'menuManagement/index';
+        $this->temp->loadTemp($controller, $data);
+    }
+    public function tambahMenu()
+    {
+        $data['menuPanel'] = $this->temp->getMenu();
+        $data['topPanel'] = $this->temp->getUser();
+        $data['access'] = $this->menu->getAccess();
+        $data['judul'] = "HALAMAN MANAGEMENT MENU";
+        $controller = 'menuManagement/tambahMenu';
         $this->temp->loadTemp($controller, $data);
     }
 }

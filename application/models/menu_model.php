@@ -24,4 +24,8 @@ class menu_model extends CI_Model
         $this->db->order_by('idMenu', 'ACS');
         return $this->db->get()->result_array();
     }
+    public function getAccess()
+    {
+        return $this->db->get('access')->result_array();
+    }
 }
