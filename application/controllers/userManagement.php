@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class AdmUser extends CI_Controller
+class userManagement extends CI_Controller
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class AdmUser extends CI_Controller
     }
     public function index()
     {
-        $config['base_url'] = 'http://localhost/app-01/AdmUser/index';
+        $config['base_url'] = 'http://localhost/app-01/userManagement/index';
         $config['total_rows'] = $this->user->countUser();
         $config['per_page'] = 10;
 
@@ -23,7 +23,7 @@ class AdmUser extends CI_Controller
         $data['topPanel'] = $this->temp->getUser();
         $data['judul'] = "HALAMAN MANAGEMENT USER";
         $data['user'] = $this->user->getDataUser($config['per_page'], $data['start']);
-        $controller = 'AdmUser/index';
+        $controller = 'userManagement/index';
         $this->temp->loadTemp($controller, $data);
     }
 }

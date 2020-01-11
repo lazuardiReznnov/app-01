@@ -1,12 +1,21 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
+    <h3 class="text-center">LIST MENU</h3>
+    <hr>
+    <div class="row ml-2 mr-2">
 
-    <div class="jumbotron bg-white text-center">
-        <h1 class="display-4">SELAMAT DATANG</h1>
-        <p class="lead">fauzia-App Financial Program</p>
-        <hr class="my-4">
-        <p>Help You manage your Financial data</p>
-
+        <?php foreach ($menuPanel as $mph) : ?>
+            <div class="col-md-3 mr-2 ml-2">
+                <div class="card bg-info text-white" style="width: 18rem;">
+                    <div class="card-icon"><i class="<?= $mph['iconMenu']; ?>"></i></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $mph['titleMenu']; ?>"</h5>
+                        <p class="card-text"><?= $mph['ketMenu']; ?>"</p>
+                        <a href="<?= base_url($mph['linkMenu']); ?>" class="btn btn-primary"><i class="fas fa-fw fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
 </div>
