@@ -8,6 +8,9 @@ class   Home extends CI_Controller
     }
     public function index()
     {
+
+        $data['menuPanel'] = $this->temp->getMenu();
+        $data['topPanel'] = $this->temp->getUser();
         $controller = 'home/index';
         $data['judul'] = 'HALAMAN HOME';
         $this->temp->loadTemp($controller, $data);

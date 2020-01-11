@@ -8,7 +8,6 @@ class menuManagement extends CI_Controller
         parent::__construct();
         $this->load->model('Templates_model', 'temp');
         $this->load->model('menu_model', 'menu');
-        $this->load->model('panelKiri_model', 'panelKiri');
     }
     public function index()
     {
@@ -19,7 +18,8 @@ class menuManagement extends CI_Controller
         $data['start'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
 
-        $data['menuPanel'] = $this->panelKiri->getMenu();
+        $data['menuPanel'] = $this->temp->getMenu();
+        $data['topPanel'] = $this->temp->getUser();
         $data['judul'] = "HALAMAN MANAGEMENT MENU";
         $data['menu'] = $this->menu->getDataMenu($config['per_page'], $data['start']);
         $controller = 'menu/index';

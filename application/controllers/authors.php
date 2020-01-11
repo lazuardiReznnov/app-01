@@ -16,7 +16,7 @@ class Authors extends CI_Controller
 
 
 
-
+        $data['menuPanel'] = $this->panelKiri->getMenu();
         $data['start'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
         $data['authors'] = $this->authors->AlldataAuthors($config['per_page'], $data['start']);

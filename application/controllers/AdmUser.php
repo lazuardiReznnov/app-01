@@ -18,6 +18,9 @@ class AdmUser extends CI_Controller
         $data['start'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
 
+
+        $data['menuPanel'] = $this->temp->getMenu();
+        $data['topPanel'] = $this->temp->getUser();
         $data['judul'] = "HALAMAN MANAGEMENT USER";
         $data['user'] = $this->user->getDataUser($config['per_page'], $data['start']);
         $controller = 'AdmUser/index';
