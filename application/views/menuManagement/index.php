@@ -1,12 +1,17 @@
 <div class="container">
+    <div class="row mb-5">
+        <div class="col">
+            <a href="<?= base_url(); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i>BACK</a>
+
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <h3>MENU MANAGEMENT</h3>
         </div>
     </div>
-    <div class="row mt-5 mb-3">
+    <div class="row mt-2 mb-3">
         <div class="col">
-            <a href="<?= base_url(); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i>BACK</a>
             <a href="<?= base_url('menuManagement/tambahMenu'); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-user-plus mr-1"></i></i>ADD</a>
         </div>
     </div>

@@ -5,7 +5,7 @@
     <div class="row ml-2 mr-2">
 
         <?php foreach ($menuPanel as $mph) : ?>
-            <div class="col-md-3 mr-2 ml-2">
+            <div class="col-md-3 mr-2 ml-5">
                 <div class="card bg-info text-white" style="width: 18rem;">
                     <div class="card-icon"><i class="<?= $mph['iconMenu']; ?>"></i></div>
                     <div class="card-body">

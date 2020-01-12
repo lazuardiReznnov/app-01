@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jan 2020 pada 09.38
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Waktu pembuatan: 12 Jan 2020 pada 04.10
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,7 +53,7 @@ CREATE TABLE `authors` (
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `birthdate` date NOT NULL,
-  `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `added` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -173,16 +173,17 @@ CREATE TABLE `menu` (
   `titleMenu` varchar(100) NOT NULL,
   `linkMenu` varchar(100) NOT NULL,
   `iconMenu` varchar(100) NOT NULL,
-  `idAccess` int(11) NOT NULL
+  `idAccess` int(11) NOT NULL,
+  `ketMenu` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `menu`
 --
 
-INSERT INTO `menu` (`idMenu`, `titleMenu`, `linkMenu`, `iconMenu`, `idAccess`) VALUES
-(1, 'USER MANAGEMENT', 'AdmUser/index', 'far fa-fw fa-user-circle', 1),
-(2, 'MENU MANAGEMENT', 'menuManagement/index', 'fas fa-fw fa-bars', 1);
+INSERT INTO `menu` (`idMenu`, `titleMenu`, `linkMenu`, `iconMenu`, `idAccess`, `ketMenu`) VALUES
+(1, 'USER MANAGEMENT', 'userManagement/index', 'far fa-fw fa-user-circle', 1, 'Menu Untuk Menambahkan, Hapus, Update User'),
+(2, 'MENU MANAGEMENT', 'menuManagement/index', 'fas fa-fw fa-bars', 1, 'untuk Menambahkan, Hapus, dan Edit Menu Utama');
 
 -- --------------------------------------------------------
 
@@ -196,7 +197,7 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `pass` text NOT NULL,
   `photo` varchar(100) NOT NULL,
-  `idAccess` int(1) NOT NULL DEFAULT '1'
+  `idAccess` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

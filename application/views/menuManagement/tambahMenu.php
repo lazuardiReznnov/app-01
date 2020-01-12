@@ -1,4 +1,11 @@
 <div class="container fluid mb-4">
+    <div class="row mb-5">
+        <div class="col">
+
+            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i>BACK</a>
+
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <h3>MENU MANAGEMANT</h3>
@@ -10,7 +17,7 @@
             <?= form_open_multipart('userManagement/tambahUser'); ?>
             <div class="form-group col-md-6">
                 <label for="username">Title</label>
-                <input type="text" class="form-control" id="titleMenu" name="titleMenu" aria-describedby="titleMenu">
+                <input type="text" class="form-control" id="titleMenu" name="titleMenu" aria-describedby="titleMenu" placeholder="insert The Title Of the Menu">
                 <small id="titleMenu" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group col-md-6">
@@ -20,7 +27,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="Icon">Icon</label>
-                <input type="text" class="form-control" id="link" name="iconMenu" aria-describedby="iconMenu">
+                <input type="text" class="form-control" id="link" name="iconMenu" aria-describedby="iconMenu" placeholder="put the fontawesome icon">
                 <small id="iconMenu" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group col-md-6">
