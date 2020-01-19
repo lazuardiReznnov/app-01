@@ -59,11 +59,30 @@ class menu_model extends CI_Model
         $this->db->select('menu.linkMenu');
         $this->db->select('menu.iconMenu');
         $this->db->select('menu.idAccess');
+        $this->db->select('menu.ketMenu');
         $this->db->select('access.idAccess');
         $this->db->select('access.accessName');
         $this->db->from($this->table);
         $this->db->join('access', 'menu.idAccess = access.idAccess', 'inner');
         $this->db->where('idMenu', $idMenu);
         return $this->db->get()->row();
+    }
+    public function updateMenu()
+    {
+        $data = [
+            "titleMenu" => $this->input->post('titleMenu', true),
+            "linkMenu" => $this->input->post('link', true),
+            "iconMenu" => $this->input->post('iconMenu', true),
+            "idAccess" => $this->input->post('idAccess', true),
+            "ketMenu" => $this->input->post('ketMenu', true)
+        ];
+        $this->db->set($data);
+        $this->db->where('idMenu', $this->input->post('idMenu', true));
+        $this->db->update($this->table);
+    }
+    public function deleteMenu($idMenu)
+    {
+        $this->db->where('idMenu', $idMenu);
+        $this->db->delete($this->table);
     }
 }

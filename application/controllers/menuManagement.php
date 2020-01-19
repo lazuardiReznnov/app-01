@@ -65,4 +65,34 @@ class menuManagement extends CI_Controller
         $controller = 'menuManagement/detailMenu';
         $this->temp->loadTemp($controller, $data);
     }
+    public function editMenu($idMenu)
+    {
+        $this->form_validation->set_rules('titleMenu', 'Tittle Menu', 'required');
+        $this->form_validation->set_rules('link', 'Menu Link', 'required');
+        $this->form_validation->set_rules('iconMenu', 'Icon Menu', 'required');
+        $this->form_validation->set_rules('idAccess', 'Access', 'required');
+        $this->form_validation->set_rules('ketMenu', 'Keterangan', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $data['menuPanel'] = $this->temp->getMenu();
+            $data['topPanel'] = $this->temp->getUser();
+            $data['access'] = $this->menu->getAccess();
+            $data['editMenu'] = $this->menu->getMenuByids($idMenu);
+            $data['judul'] = "HALAMAN MANAGEMENT MENU";
+            $controller = 'menuManagement/editMenu';
+            $this->temp->loadTemp($controller, $data);
+        } else {
+            $this->menu->updateMenu();
+            $this->session->set_flashdata('success', 'Successfully Updated');
+            $linkDirect = "menuManagement/detailMenu/$idMenu";
+            redirect($linkDirect);
+        }
+    }
+    public function deleteMenu($idMenu)
+    {
+        $this->menu->deleteMenu($idMenu);
+        $this->session->set_flashdata('success', 'Successfully Delete');
+        $linkDirect = "menuManagement/index";
+        redirect($linkDirect);
+    }
 }
