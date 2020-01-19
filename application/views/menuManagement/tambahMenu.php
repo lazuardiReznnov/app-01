@@ -12,23 +12,36 @@
             <hr>
         </div>
     </div>
+    <?php if ($this->session->flashdata('cek')) : ?>
+        <div class="row ">
+            <div class="col-lg-6">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    ERROR
+                    <strong>TITLE MENU HAS BEEN</strong> <?= $this->session->flashdata('cek'); ?>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
     <div class="row ml-1">
         <div class="col">
-            <?= form_open_multipart('userManagement/tambahUser'); ?>
+            <?= form_open_multipart('menuManagement/tambahMenu'); ?>
             <div class="form-group col-md-6">
                 <label for="username">Title</label>
-                <input type="text" class="form-control" id="titleMenu" name="titleMenu" aria-describedby="titleMenu" placeholder="insert The Title Of the Menu">
-                <small id="titleMenu" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input type="text" class="form-control" id="titleMenu" name="titleMenu" aria-describedby="titleMenu" placeholder="Input The Title Of the Menu" value="<?= set_value('titleMenu');?>">
+                <small class="form-text text-danger"><?= form_error('titleMenu'); ?></small></small>
             </div>
             <div class="form-group col-md-6">
                 <label for="link">Link</label>
-                <input type="text" class="form-control" id="link" name="link" aria-describedby="link">
-                <small id="link" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input type="text" class="form-control" id="link" name="link" aria-describedby="link"<?= set_value('link');?> placeholder="Input The Title Of the Menu">
+                <small class="form-text text-danger"><?= form_error('link'); ?></small></small>
             </div>
             <div class="form-group col-md-6">
                 <label for="Icon">Icon</label>
-                <input type="text" class="form-control" id="link" name="iconMenu" aria-describedby="iconMenu" placeholder="put the fontawesome icon">
-                <small id="iconMenu" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input type="text" class="form-control" id="iconMenu" name="iconMenu" aria-describedby="iconMenu" <?= set_value('iconMenu');?> placeholder="Input the fontawesome icon">
+                <small class="form-text text-danger"><?= form_error('iconMenu'); ?></small></small>
             </div>
             <div class="form-group col-md-6">
                 <?php
@@ -41,10 +54,12 @@
 
                 <?php $i++;
                 endforeach; ?>
+                <small class="form-text text-danger"><?= form_error('idAccess'); ?></small></small>
             </div>
             <div class="form-group col-md-6">
                 <label for="ketMenu">Keterangan</label>
                 <textarea class="form-control" id="keterangan" name="ketMenu" rows="3"></textarea>
+                <small class="form-text text-danger"><?= form_error('ketMenu'); ?></small></small>
             </div>
             <div class="form-group col-md-6">
                 <input type="submit" class="btn btn-secondary" value="SAVE" class="btn btn-primary">
