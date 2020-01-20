@@ -1,13 +1,14 @@
 <div class="container">
     <div class="row mb-5">
         <div class="col">
-            <a href="<?= base_url(); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i>BACK</a>
+            <a href="<?= base_url(); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
 
         </div>
     </div>
     <div class="row">
         <div class="col">
             <h3>MENU MANAGEMENT</h3>
+            <hr>
         </div>
     </div>
     <?php if ($this->session->flashdata('success')) : ?>
@@ -25,7 +26,7 @@
     <?php endif; ?>
     <div class="row mt-2 mb-3">
         <div class="col">
-            <a href="<?= base_url('menuManagement/tambahMenu'); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-user-plus mr-1"></i></i>ADD</a>
+            <a href="<?= base_url('menuManagement/tambahMenu'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add Menu"><i class="fas fa-folder-plus mr-1"></i></a>
         </div>
     </div>
     <div class="row mt-2">
@@ -35,7 +36,7 @@
                 foreach ($menu as $mnu) :; ?>
                     <li class="list-group-item ">
                         <?= $mnu['titleMenu']; ?>
-                        <a href=" <?= base_url('menuManagement/detailMenu/' . $mnu['idMenu'] . ''); ?>" class="badge badge-success mr-2 float-right"><i class="fas fa-fw fa-arrow-right"></i></a>
+                        <a href=" <?= base_url('menuManagement/detailMenu/' . $mnu['idMenu'] . ''); ?>" class="badge badge-success mr-2 float-right" data-toggle="tooltip" data-placement="top" title="Detail Menu"><i class="fas fa-fw fa-arrow-right"></i></a>
                     </li>
                 <?php endforeach; ?>
             </ul>

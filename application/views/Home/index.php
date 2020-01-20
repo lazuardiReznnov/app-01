@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?= $mph['titleMenu']; ?>"</h5>
                         <p class="card-text"><?= $mph['ketMenu']; ?>"</p>
-                        <a href="<?= base_url($mph['linkMenu']); ?>" class="btn btn-primary"><i class="fas fa-fw fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url($mph['linkMenu']); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="GO"><i class="fas fa-fw fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

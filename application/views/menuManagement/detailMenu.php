@@ -1,9 +1,8 @@
 <div class="container">
 
     <div class="row mb-5">
-        <div class="col">
-            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i>BACK</a>
-
+        <div class="col-md-5">
+            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
         </div>
     </div>
     <div class="row mb-4">
@@ -25,7 +24,7 @@
             </div>
         </div>
     <?php endif; ?>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-md-6">
             <div class="card" style="">
                 <div class="card-body">
@@ -45,43 +44,27 @@
                             <td>: <?= $menuDetail->accessName; ?></td>
                         </tr>
                     </table>
-
-                    <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success"><i class="fas fa-fw fa-edit"></i>EDIT MENU </a>
-                    <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger"><i class="fas fa-fw fa-minus"></i> DELETE </a>
-
+                    <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Menu"><i class="fas fa-fw fa-edit"></i></a>
+                    <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Menu"><i class="fas fa-fw fa-minus"></i></a>
+                    <a href="<?= base_url('menuManagement/addSubmenu/') . $menuDetail->idMenu; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Submenu"><i class="fas fa-folder-plus"></i> </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mt-5 mb-3">
-        <div class="col">
-            <h3>List Sub Menu</h3>
-            <hr>
+    <div class="row mt-2 mb-3">
+        <div class="col-md-6">
+            <h5>LIST SUBMENU</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Link</th>
-                        <th scope="col">Icon Menu</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cras justo odio
+                    <a href="#" class="badge badge-primary badge-pill " data-toggle="tooltip" data-placement="top" title="Detail Submenu"><i class="fas fa-fw fa-arrow-right"></i></a>
+                </li>
 
-                </tbody>
-            </table>
+            </ul>
         </div>
     </div>
 </div>
