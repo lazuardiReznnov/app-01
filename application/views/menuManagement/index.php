@@ -1,10 +1,4 @@
 <div class="container">
-    <div class="row mb-5">
-        <div class="col">
-            <a href="<?= base_url(); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
-
-        </div>
-    </div>
     <div class="row">
         <div class="col">
             <h3>MENU MANAGEMENT</h3>
@@ -26,6 +20,7 @@
     <?php endif; ?>
     <div class="row mt-2 mb-3">
         <div class="col">
+            <a href="<?= base_url(); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
             <a href="<?= base_url('menuManagement/tambahMenu'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add Menu"><i class="fas fa-folder-plus mr-1"></i></a>
         </div>
     </div>

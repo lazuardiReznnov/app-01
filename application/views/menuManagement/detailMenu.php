@@ -1,14 +1,16 @@
 <div class="container">
-
-    <div class="row mb-5">
-        <div class="col-md-5">
-            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
-        </div>
-    </div>
     <div class="row mb-4">
         <div class="col">
             <h3>DETAIL MENU</h3>
             <hr>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-5">
+            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
+            <a href="<?= base_url('menuManagement/addSubmenu/') . $menuDetail->idMenu; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Submenu"><i class="fas fa-folder-plus"></i> </a>
+            <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Menu"><i class="fas fa-fw fa-edit"></i></a>
+            <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Menu"><i class="fas fa-fw fa-minus"></i></a>
         </div>
     </div>
     <?php if ($this->session->flashdata('success')) : ?>
@@ -44,9 +46,7 @@
                             <td>: <?= $menuDetail->accessName; ?></td>
                         </tr>
                     </table>
-                    <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Menu"><i class="fas fa-fw fa-edit"></i></a>
-                    <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Menu"><i class="fas fa-fw fa-minus"></i></a>
-                    <a href="<?= base_url('menuManagement/addSubmenu/') . $menuDetail->idMenu; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Submenu"><i class="fas fa-folder-plus"></i> </a>
+
                 </div>
             </div>
         </div>
