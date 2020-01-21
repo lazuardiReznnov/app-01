@@ -11,17 +11,6 @@ class menu_model extends CI_Model
 
     public function getDataMenu($limit, $start)
     {
-        //$this->db->select('menu.idMenu');
-        //$this->db->select('menu.titleMenu');
-        //$this->db->select('menu.linkMenu');
-        //$this->db->select('menu.iconMenu');
-        //$this->db->select('menu.idAccess');
-        //$this->db->select('access.idAccess');
-        //$this->db->select('access.accessName');
-        //$this->db->from(//$this->table);
-        //$this->db->join('access', 'menu.idAccess = access.idAccess', 'inner');
-        //$this->db->limit($limit, $start);
-        //$this->db->order_by('idMenu', 'ACS');
         $this->db->select('idMenu');
         $this->db->select('titleMenu');
         $this->db->from($this->table);
@@ -82,7 +71,25 @@ class menu_model extends CI_Model
     }
     public function deleteMenu($idMenu)
     {
+        $tables = array($this->table, 'subMenu');
         $this->db->where('idMenu', $idMenu);
-        $this->db->delete($this->table);
+        $this->db->delete($tables);
+    }
+    public function getDataSubmenu($idMenu)
+    {
+        return $this->db->get_where('subMenu', array('idMenu' => $idMenu))->result_array();
+    }
+    public function inputSubmenu()
+    {
+        $data = [
+
+            "idMenu" => $this->input->post('idMenu', true),
+            "titleSubmenu" => $this->input->post('titleSubmenu', true),
+            "linkSubmenu" => $this->input->post('link', true),
+            "iconSubmenu" => $this->input->post('iconSubmenu', true),
+            "idAccess" => $this->input->post('idAccess', true),
+            "ketsubmenu" => $this->input->post('ketsubmenu', true)
+        ];
+        $this->db->insert('subMenu', $data);
     }
 }

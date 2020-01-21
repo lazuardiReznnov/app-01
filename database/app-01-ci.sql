@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2020 at 04:54 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Waktu pembuatan: 21 Jan 2020 pada 11.44
+-- Versi server: 10.1.30-MariaDB
+-- Versi PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `access`
+-- Struktur dari tabel `access`
 --
 
 CREATE TABLE `access` (
@@ -34,7 +34,7 @@ CREATE TABLE `access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `access`
+-- Dumping data untuk tabel `access`
 --
 
 INSERT INTO `access` (`idAccess`, `accessname`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `access` (`idAccess`, `accessname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `authors`
+-- Struktur dari tabel `authors`
 --
 
 CREATE TABLE `authors` (
@@ -57,7 +57,7 @@ CREATE TABLE `authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `authors`
+-- Dumping data untuk tabel `authors`
 --
 
 INSERT INTO `authors` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `authors` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Struktur dari tabel `menu`
 --
 
 CREATE TABLE `menu` (
@@ -178,18 +178,35 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menu`
+-- Dumping data untuk tabel `menu`
 --
 
 INSERT INTO `menu` (`idMenu`, `titleMenu`, `linkMenu`, `iconMenu`, `idAccess`, `ketMenu`) VALUES
 (1, 'USER MANAGEMENT', 'userManagement/index', 'far fa-fw fa-user-circle', 1, 'Menu Untuk Menambahkan, Hapus, Update User'),
 (2, 'MENU MANAGEMENT', 'menuManagement/index', 'fas fa-fw fa-bars', 1, 'untuk Menambahkan, Hapus, dan Edit Menu Utama'),
-(3, 'CASH MANAGEMENT', 'cashManagement/index', 'fas fa-fw fa-cash-register', 1, 'For Cash Management Overflow');
+(4, 'CASH MANAGEMENT', 'cashManagement/index', 'fas fa-fw fa-wallet', 1, 'Managging cash                 ');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `submenu`
+--
+
+CREATE TABLE `submenu` (
+  `idSubMenu` int(11) NOT NULL,
+  `idMenu` int(11) NOT NULL,
+  `titleSubmenu` varchar(100) NOT NULL,
+  `linkSubmenu` varchar(100) NOT NULL,
+  `iconSubmenu` varchar(100) NOT NULL,
+  `ketSubmenu` text NOT NULL,
+  `idAccess` int(11) NOT NULL,
+  `activated` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -202,7 +219,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`idUser`, `username`, `email`, `pass`, `photo`, `idAccess`) VALUES
@@ -213,54 +230,66 @@ INSERT INTO `user` (`idUser`, `username`, `email`, `pass`, `photo`, `idAccess`) 
 --
 
 --
--- Indexes for table `access`
+-- Indeks untuk tabel `access`
 --
 ALTER TABLE `access`
   ADD PRIMARY KEY (`idAccess`);
 
 --
--- Indexes for table `authors`
+-- Indeks untuk tabel `authors`
 --
 ALTER TABLE `authors`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `menu`
+-- Indeks untuk tabel `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`idMenu`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `submenu`
+--
+ALTER TABLE `submenu`
+  ADD PRIMARY KEY (`idSubMenu`);
+
+--
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `access`
+-- AUTO_INCREMENT untuk tabel `access`
 --
 ALTER TABLE `access`
   MODIFY `idAccess` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `authors`
+-- AUTO_INCREMENT untuk tabel `authors`
 --
 ALTER TABLE `authors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `idMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `submenu`
+--
+ALTER TABLE `submenu`
+  MODIFY `idSubMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

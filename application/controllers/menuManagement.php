@@ -61,6 +61,7 @@ class menuManagement extends CI_Controller
         $data['topPanel'] = $this->temp->getUser();
         $data['access'] = $this->menu->getAccess();
         $data['menuDetail'] = $this->menu->getMenuByids($idMenu);
+        $data['subMenu'] = $this->menu->getDataSubmenu($idMenu);
         $data['judul'] = "HALAMAN MANAGEMENT MENU";
         $controller = 'menuManagement/detailMenu';
         $this->temp->loadTemp($controller, $data);
@@ -94,5 +95,32 @@ class menuManagement extends CI_Controller
         $this->session->set_flashdata('success', 'Successfully Delete');
         $linkDirect = "menuManagement/index";
         redirect($linkDirect);
+    }
+
+    public function addSubmenu($idMenu)
+    {
+
+        $this->form_validation->set_rules('titleSubmenu', 'Tittle Submenu', 'required');
+        $this->form_validation->set_rules('link', 'Link Submenu', 'required');
+        $this->form_validation->set_rules('iconSubmenu', 'Submenu Icon', 'required');
+        $this->form_validation->set_rules('idAccess', 'privillage', 'required');
+        $this->form_validation->set_rules('ketsubmenu', 'description', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $data['menuPanel'] = $this->temp->getMenu();
+            $data['topPanel'] = $this->temp->getUser();
+            $data['access'] = $this->menu->getAccess();
+            $data['editMenu'] = $this->menu->getMenuByids($idMenu);
+            $data['idMenu'] = $idMenu;
+            $data['judul'] = "HALAMAN MANAGEMENT MENU";
+            $controller = 'menuManagement/addSubmenu';
+            $this->temp->loadTemp($controller, $data);
+        } else {
+            $this->menu->inputSubmenu();
+            $this->session->set_flashdata('success', 'Successfully Added Submenu');
+            $linkDirect = "menuManagement/detailMenu/$idMenu";
+            redirect($linkDirect);
+        }
     }
 }

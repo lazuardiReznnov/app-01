@@ -58,12 +58,14 @@
     </div>
     <div class="row mb-5">
         <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cras justo odio
-                    <a href="#" class="badge badge-primary badge-pill " data-toggle="tooltip" data-placement="top" title="Detail Submenu"><i class="fas fa-fw fa-arrow-right"></i></a>
-                </li>
 
+            <ul class="list-group">
+                <?php foreach ($subMenu as $sm) :; ?>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <?= $sm['titleSubmenu']; ?>
+                        <a href="<?= base_url('menuManagement/detailSubmenu'); ?>" class="badge badge-primary badge-pill " data-toggle="tooltip" data-placement="top" title="Detail Submenu"><i class="fas fa-fw fa-arrow-right"></i></a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
