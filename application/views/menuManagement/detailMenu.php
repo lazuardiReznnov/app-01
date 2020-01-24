@@ -7,10 +7,12 @@
     </div>
     <div class="row mb-5">
         <div class="col-md-5">
-            <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
-            <a href="<?= base_url('menuManagement/addSubmenu/') . $menuDetail->idMenu; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Submenu"><i class="fas fa-folder-plus"></i> </a>
-            <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Menu"><i class="fas fa-fw fa-edit"></i></a>
-            <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Menu"><i class="fas fa-fw fa-minus"></i></a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="<?= base_url('menuManagement/index'); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
+                <a href="<?= base_url('menuManagement/addSubmenu/') . $menuDetail->idMenu; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Submenu"><i class="fas fa-folder-plus"></i> </a>
+                <a href="<?= base_url('menuManagement/editMenu/') . $menuDetail->idMenu; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit Menu"><i class="fas fa-fw fa-edit"></i></a>
+                <a href="<?= base_url('menuManagement/deleteMenu/') . $menuDetail->idMenu; ?>" onclick='confirm("are You Sure want to delete.?")' class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Menu"><i class="fas fa-fw fa-minus"></i></a>
+            </div>
         </div>
     </div>
     <?php if ($this->session->flashdata('success')) : ?>
@@ -49,24 +51,6 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row mt-2 mb-3">
-        <div class="col-md-6">
-            <h5>LIST SUBMENU</h5>
-        </div>
-    </div>
-    <div class="row mb-5">
-        <div class="col-md-6">
-
-            <ul class="list-group">
-                <?php foreach ($subMenu as $sm) :; ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <?= $sm['titleSubmenu']; ?>
-                        <a href="<?= base_url('menuManagement/detailSubmenu'); ?>" class="badge badge-primary badge-pill " data-toggle="tooltip" data-placement="top" title="Detail Submenu"><i class="fas fa-fw fa-arrow-right"></i></a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
         </div>
     </div>
 </div>

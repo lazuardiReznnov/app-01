@@ -71,25 +71,7 @@ class menu_model extends CI_Model
     }
     public function deleteMenu($idMenu)
     {
-        $tables = array($this->table, 'subMenu');
         $this->db->where('idMenu', $idMenu);
-        $this->db->delete($tables);
-    }
-    public function getDataSubmenu($idMenu)
-    {
-        return $this->db->get_where('subMenu', array('idMenu' => $idMenu))->result_array();
-    }
-    public function inputSubmenu()
-    {
-        $data = [
-
-            "idMenu" => $this->input->post('idMenu', true),
-            "titleSubmenu" => $this->input->post('titleSubmenu', true),
-            "linkSubmenu" => $this->input->post('link', true),
-            "iconSubmenu" => $this->input->post('iconSubmenu', true),
-            "idAccess" => $this->input->post('idAccess', true),
-            "ketsubmenu" => $this->input->post('ketsubmenu', true)
-        ];
-        $this->db->insert('subMenu', $data);
+        $this->db->delete($this->tables);
     }
 }
