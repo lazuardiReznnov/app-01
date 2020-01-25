@@ -20,4 +20,13 @@ class cashManagement extends CI_Controller
         $controller = 'cashManagement/index';
         $this->temp->loadTemp($controller, $data);
     }
+    public function cashAcount()
+    {
+        $data['menuPanel'] = $this->temp->getMenu();
+        $data['topPanel'] = $this->temp->getUser();
+        $data['access'] = $this->menu->getAccess();
+        $data['judul'] = "CASH MANAGEMENT PAGE";
+        $controller = 'cashManagement/acount';
+        $this->temp->loadTemp($controller, $data);
+    }
 }

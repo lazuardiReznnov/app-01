@@ -9,8 +9,13 @@
         <div class="col-md-6">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <a href="<?= base_url(); ?>" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Back"><i class="fas fa-fw fa-arrow-circle-left mr-1"></i></a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <div class="btn-group" role="group" aria-label="Basic example">
                 <a href="<?= base_url('cashManagement/cashacount'); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="List Acount"><i class="fas fa-fw fa-cash-register mr-1"></i></a>
-                <a href="<?= base_url('cashManagement/addCash'); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="List Acount"><i class="fas fa-fw fa-plus mr-1"></i></a>
+                <a href="<?= base_url('cashManagement/addCash'); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Cash"><i class="fas fa-fw fa-plus mr-1"></i></a>
+                <a href="<?= base_url('cashManagement/billingreport'); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Billing Report"><i class="fas fa-fw fa-chart-bar mr-1"></i></a>
             </div>
         </div>
     </div>
