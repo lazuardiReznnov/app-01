@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jan 2020 pada 11.44
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Waktu pembuatan: 26 Jan 2020 pada 14.50
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,7 +53,7 @@ CREATE TABLE `authors` (
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `birthdate` date NOT NULL,
-  `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `added` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -165,6 +165,26 @@ INSERT INTO `authors` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `a
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `cashacount`
+--
+
+CREATE TABLE `cashacount` (
+  `idCC` int(11) NOT NULL,
+  `titleAcount` varchar(100) NOT NULL,
+  `descAcount` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `cashacount`
+--
+
+INSERT INTO `cashacount` (`idCC`, `titleAcount`, `descAcount`) VALUES
+(1001, 'CASH BANK', 'Cash recive from Acount Bank'),
+(1002, 'CASH PAYMENT', 'CASH FROM PAYMENT BILL');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `menu`
 --
 
@@ -189,23 +209,6 @@ INSERT INTO `menu` (`idMenu`, `titleMenu`, `linkMenu`, `iconMenu`, `idAccess`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `submenu`
---
-
-CREATE TABLE `submenu` (
-  `idSubMenu` int(11) NOT NULL,
-  `idMenu` int(11) NOT NULL,
-  `titleSubmenu` varchar(100) NOT NULL,
-  `linkSubmenu` varchar(100) NOT NULL,
-  `iconSubmenu` varchar(100) NOT NULL,
-  `ketSubmenu` text NOT NULL,
-  `idAccess` int(11) NOT NULL,
-  `activated` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `user`
 --
 
@@ -215,7 +218,7 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `pass` text NOT NULL,
   `photo` varchar(100) NOT NULL,
-  `idAccess` int(1) NOT NULL DEFAULT '1'
+  `idAccess` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -243,16 +246,16 @@ ALTER TABLE `authors`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indeks untuk tabel `cashacount`
+--
+ALTER TABLE `cashacount`
+  ADD PRIMARY KEY (`idCC`);
+
+--
 -- Indeks untuk tabel `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`idMenu`);
-
---
--- Indeks untuk tabel `submenu`
---
-ALTER TABLE `submenu`
-  ADD PRIMARY KEY (`idSubMenu`);
 
 --
 -- Indeks untuk tabel `user`
@@ -281,12 +284,6 @@ ALTER TABLE `authors`
 --
 ALTER TABLE `menu`
   MODIFY `idMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `submenu`
---
-ALTER TABLE `submenu`
-  MODIFY `idSubMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

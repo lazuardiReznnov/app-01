@@ -31,17 +31,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>1001</td>
-                        <td>Cash Bank</td>
-                        <td>CAsh In From Bank Acount</td>
-                        <td>
-                            <a href="<?= base_url('cashManagement/editCashacount'); ?>" class="badge badge-success" data-toggle="tooltip" data-placement="top" title="Edit Cash Acount"><i class="fas fa-fw fa-edit mr-1"></i></a>
-                            <a href="<?= base_url('cashManagement/delCashacount'); ?>" onclick="confirm('Are You sure want to delete it.?')" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title="delete Cash Acount"><i class="fas fa-fw fa-edit mr-1"></i></a>
-                        </td>
+                        <?php foreach ($cc as $ccd) :; ?>
+                            <th scope="row"><?= ++$start; ?></th>
+                            <td><?= $ccd['idCC']; ?></td>
+                            <td><?= $ccd['titleAcount']; ?></td>
+                            <td><?= $ccd['descAcount']; ?></td>
+                            <td>
+                                <a href="<?= base_url('cashManagement/editCashacount/' . $ccd['idCC'] . ''); ?>" class="badge badge-success" data-toggle="tooltip" data-placement="top" title="Edit Cash Acount"><i class="fas fa-fw fa-edit mr-1"></i></a>
+                                <a href="<?= base_url('cashManagement/delCashacount/' . $ccd['idCC'] . ''); ?>" onclick="confirm('Are You sure want to delete it.?')" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title="delete Cash Acount"><i class="fas fa-fw fa-edit mr-1"></i></a>
+                            </td>
                     </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <?= $this->pagination->create_links(); ?>
         </div>
     </div>
 </div>
